@@ -18,8 +18,8 @@ return new class extends Migration
             $table->string('age');
             $table->string('description');
             $table->string('image');
-            $table->string('status');
-            $table->string('adoptedBy');
+            $table->string('status')->default(0);
+            $table->string('adoptedBy')->nullable();
             $table->timestamps();
         });
     }

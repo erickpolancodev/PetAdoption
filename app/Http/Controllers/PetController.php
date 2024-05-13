@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
 use App\Models\Pet;
+use Illuminate\Support\Facades\Auth;
 
 class PetController extends Controller
 {
@@ -18,11 +19,21 @@ class PetController extends Controller
     public function show($id)
     {
         $pet = Pet::find($id);
-
         if (!$pet) {
             return abort(404); // Handle pet not found scenario
         }
 
         return view('pets.description', ['pet' => $pet]);
+    }
+
+    public function adopt($id)
+    {
+        $userId = Auth::user()->id;
+        $pet = Pet::find($id);
+        $pet->status = 1;
+        $pet->adoptedby = $userId;
+        $pet->save();
+
+        return redirect()->route('dashboard');
     }
 }

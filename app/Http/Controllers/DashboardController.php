@@ -2,18 +2,23 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use App\Models\Pet;
+use Illuminate\Support\Facades\Auth;
 
 class DashboardController extends Controller
 {
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
-
     public function index()
     {
-        return view('dashboard');
+        $userId = Auth::user()->id;
+        $adoptedPets = Pet::whereAdoptedby($userId)->get();
+        if($adoptedPets->count() == 0)
+        {
+            return view('dashboard', ['message' => 'No pets adopted', 'pets' => []]);
+        }else{
+            return view('dashboard', ['message' => '','pets' => $adoptedPets]);
+        }
     }
+
 }
