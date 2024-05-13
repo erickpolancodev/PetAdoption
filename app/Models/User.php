@@ -45,4 +45,9 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
+    public function Pets()
+    {
+        return $this->hasMany(Pet::class)->select(['name','breed','age']);
+    }
 }

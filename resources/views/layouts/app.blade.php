@@ -22,10 +22,11 @@
                 @auth
                 <nav class="flex gap-4 items-center justify-center">
                     <p><strong>{{ auth()->user()->name }} | </strong></p>
+                    <a class="font-bold uppercase text-gray-600" href="{{ route('store')}}"> Store</a>
                     <a class="font-bold uppercase text-gray-600" href="{{ route('dashboard')}}"> Dashboard</a>
                     <form action="{{ route('logout')}}" method="POST">
                         @csrf
-                        <button type="submit" class="font-bold uppercase text-red-600" href=""> Logout</button>
+                        <button type="submit" class="font-bold uppercase text-red-600" href=""><i class="fa-solid fa-right-from-bracket"></i> Logout</button>
                     </form>
                 </nav>
                 @endauth

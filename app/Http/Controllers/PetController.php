@@ -12,7 +12,7 @@ class PetController extends Controller
 {
     public function index()
     {
-        $pets = Pet::where('status', 0)->get();
+        $pets = Pet::where('status', 0)->paginate(8);
         return view('principal', ['pets' => $pets]);
     }
 
@@ -31,7 +31,7 @@ class PetController extends Controller
         $userId = Auth::user()->id;
         $pet = Pet::find($id);
         $pet->status = 1;
-        $pet->adoptedby = $userId;
+        $pet->user_id = $userId;
         $pet->save();
 
         return redirect()->route('dashboard');

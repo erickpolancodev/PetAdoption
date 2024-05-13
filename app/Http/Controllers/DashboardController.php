@@ -12,10 +12,10 @@ class DashboardController extends Controller
     public function index()
     {
         $userId = Auth::user()->id;
-        $adoptedPets = Pet::whereAdoptedby($userId)->get();
+        $adoptedPets = Pet::whereUserId($userId)->get();
         if($adoptedPets->count() == 0)
         {
-            return view('dashboard', ['message' => 'No pets adopted', 'pets' => []]);
+            return view('dashboard', ['message' => 'No adopted pets', 'pets' => []]);
         }else{
             return view('dashboard', ['message' => '','pets' => $adoptedPets]);
         }

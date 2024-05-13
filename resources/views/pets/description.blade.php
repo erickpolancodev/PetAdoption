@@ -10,11 +10,11 @@
     @else
         <a href="{{ route('dashboard') }}" class="text-lg text-sky-600"> < Regresar</a>
     @endif
-    <div class="flex justify-center flex-column md:flex-row">
-        <div class="img-pet w-full md:w-4/12">
+    <div class="grid justify-center grid-cols-1 lg:grid-cols-2 gap-4 my-3">
+        <div class=" flex img-pet w-full md:justify-center lg:justify-end ">
             <img src="../img/pets/{{ $pet->image }}" alt="{{ $pet->name }} img" class="rounded-lg">
         </div>
-        <div class="des-pet flex flex-col w-full md:w-4/12 bg-white rounded-lg shadow-lg p-4">
+        <div class="des-pet w-full lg:w-10/12 bg-white rounded-lg shadow-lg p-4 md:justify-center lg:justify-start ">
             <div class="pet-information">
                 <h2 class="font-bold text-2xl mb-4 text-sky-800">{{ $pet->name }}</h2>
                 <p class="mb-2"><strong>Breed:</strong> {{ $pet->breed }}</p>
