@@ -21,7 +21,7 @@
 
                 @auth
                 <nav class="flex gap-4 items-center justify-center">
-                    <p><strong>{{ auth()->user()->name }} | </strong></p>
+                    <p><strong>{{ auth()->user()->username }} | </strong></p>
                     <a class="font-bold uppercase text-gray-600" href="{{ route('store')}}"> Store</a>
                     <a class="font-bold uppercase text-gray-600" href="{{ route('dashboard')}}"> Dashboard</a>
                     <form action="{{ route('logout')}}" method="POST">

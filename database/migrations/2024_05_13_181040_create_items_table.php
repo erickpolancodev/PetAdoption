@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('description');
             $table->string('price');
             $table->string('image');
+            $table->string('user_id')->default(0);
             $table->timestamps();
         });
     }

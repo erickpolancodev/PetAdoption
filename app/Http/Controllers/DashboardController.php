@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Pet;
+use App\Models\Item;
 use Illuminate\Support\Facades\Auth;
 
 class DashboardController extends Controller
@@ -13,12 +14,17 @@ class DashboardController extends Controller
     {
         $userId = Auth::user()->id;
         $adoptedPets = Pet::whereUserId($userId)->get();
-        if($adoptedPets->count() == 0)
+        $buyedItems = Item::whereUserId($userId)->get();
+
+        if($adoptedPets->count() == 0 && $buyedItems->count() == 0)
         {
-            return view('dashboard', ['message' => 'No adopted pets', 'pets' => []]);
-        }else{
-            return view('dashboard', ['message' => '','pets' => $adoptedPets]);
+            $message = 'Empty';
         }
+        else{
+            $message = '';
+        }
+
+        return view('dashboard', ['message' => $message,'pets' => $adoptedPets, 'items' => $buyedItems ]);
     }
 
 }

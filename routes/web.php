@@ -16,6 +16,8 @@ Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard
 Route::get('/store', [ItemController::class, 'index'])->name('store')->middleware('auth');
 Route::get('/store/{id}', [ItemController::class, 'show']);
 
+Route::post('/buy/{id}',[ItemController::class, 'buy']);
+
 
 Route::get('/', [PetController::class, 'index'])->name('pets');
 Route::get('/pets/{id}', [PetController::class, 'show']);

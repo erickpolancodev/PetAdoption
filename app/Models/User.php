@@ -50,4 +50,9 @@ class User extends Authenticatable
     {
         return $this->hasMany(Pet::class)->select(['name','breed','age']);
     }
+
+    public function Items()
+    {
+        return $this->hasMany(Item::class);
+    }
 }

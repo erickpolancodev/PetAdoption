@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('description');
             $table->string('image');
             $table->string('status')->default(0);
-            $table->foreignId('user_id')->constrained()->onDelete('cascade');
+            $table->string('user_id')->default(0);
             $table->timestamps();
         });
     }

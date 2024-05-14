@@ -13,5 +13,6 @@ class Item extends Model
         'description',
         'price',
         'image',
+        'user_id',
     ];
 }

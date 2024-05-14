@@ -18,7 +18,7 @@
                 <p class="text-xl text-sky-600 my-3">{{ $item->price }} $USD</p>
             </div>
 
-            @if(!$item->status)
+            @if(!$item->user_id)
                 @guest
                     <a href="{{ route('login') }}" class=" bg-sky-600 hover:bg-sky-700 transition-colors cursor pointer font-bold p-2 mt-2 block text-center text-white rounded-lg">Login to adopt me</a>
                 @endguest
