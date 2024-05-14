@@ -45,6 +45,9 @@
 
                 <input type="submit" value="Register" class="bg-sky-600 hover:bg-sky-700 transition-colors cursor pointer uppercase font-bold w-full p-3 text-white rounded-lg">
             </form>
+            <div class="mt-5 text-center">
+                <a href="{{ route('login') }}" class="text-sky-500  text-center my-2 rounded-lg text-md pt-8">Have an account? Login</a>
+            </div>
         </div>  
     </div>
 @endsection

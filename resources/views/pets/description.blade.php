@@ -21,19 +21,20 @@
                 <p class="mb-2"><strong>Age:</strong>  {{ $pet->age }}</p>
                 <p class="mb-2 text-justify"><strong>Description:</strong>  </br></br> {{ $pet->description }}</p>
             </div>
+            <div class="mt-8">
+                @if(!$pet->status)
+                    @guest
+                        <a href="{{ route('login') }}" class=" bg-sky-600 hover:bg-sky-700 transition-colors cursor pointer font-bold p-2 mt-2 text-center text-white rounded-lg">Login to adopt me</a>
+                    @endguest
 
-            @if(!$pet->status)
-                @guest
-                    <a href="{{ route('login') }}" class=" bg-sky-600 hover:bg-sky-700 transition-colors cursor pointer font-bold p-2 mt-2 block text-center text-white rounded-lg">Login to adopt me</a>
-                @endguest
-
-                @auth
-                    <form action="../adopt/{{$pet->id}}" method="POST">
-                        @csrf
-                        <button type="submit" class=" bg-sky-600 hover:bg-sky-700 transition-colors cursor pointer font-bold p-2 mt-2 block text-center text-white rounded-lg">Adopt me</button>
-                    </form>
-                @endauth
-            @endif
+                    @auth
+                        <form action="../adopt/{{$pet->id}}" method="POST">
+                            @csrf
+                            <button type="submit" class=" bg-sky-600 hover:bg-sky-700 transition-colors cursor pointer font-bold p-2 mt-2 block text-center text-white rounded-lg">Adopt me</button>
+                        </form>
+                    @endauth
+                @endif
+            </div>
             
             
         </div>

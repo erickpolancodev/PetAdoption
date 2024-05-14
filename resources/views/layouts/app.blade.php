@@ -14,19 +14,19 @@
 
                 @guest
                     <nav class="flex gap-4 items-center justify-center">
-                        <a class="font-bold uppercase text-gray-600" href="{{ route('login')}}"> Login</a>
-                        <a class="font-bold uppercase text-gray-600" href="{{ route('register')}}"> Register</a>
+                        <a class="font-bold uppercase text-gray-600 text-sm md:text-md lg:text-lg" href="{{ route('login')}}"> Login</a>
+                        <a class="font-bold uppercase text-gray-600 text-sm md:text-md lg:text-lg" href="{{ route('register')}}"> Register</a>
                     </nav>
                 @endguest
 
                 @auth
                 <nav class="flex gap-4 items-center justify-center">
                     <p><strong>{{ auth()->user()->username }} | </strong></p>
-                    <a class="font-bold uppercase text-gray-600" href="{{ route('store')}}"> Store</a>
-                    <a class="font-bold uppercase text-gray-600" href="{{ route('dashboard')}}"> Dashboard</a>
+                    <a class="font-bold uppercase text-gray-600 text-sm md:text-md lg:text-lg" href="{{ route('store')}}"> Store</a>
+                    <a class="font-bold uppercase text-gray-600 text-sm md:text-md lg:text-lg" href="{{ route('dashboard')}}"> Dashboard</a>
                     <form action="{{ route('logout')}}" method="POST">
                         @csrf
-                        <button type="submit" class="font-bold uppercase text-red-600" href=""><i class="fa-solid fa-right-from-bracket"></i> Logout</button>
+                        <button type="submit" class="font-bold uppercase text-red-600 text-sm md:text-md lg:text-lg" href=""><i class="fa-solid fa-right-from-bracket"></i> Logout</button>
                     </form>
                 </nav>
                 @endauth

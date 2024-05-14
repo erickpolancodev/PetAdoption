@@ -37,6 +37,9 @@
                     </div>
                 @endif
             </form>
+            <div class="mt-5 text-center">
+                <a href="{{ route('register') }}" class="text-sky-500  text-center my-2 rounded-lg text-md pt-8">Create an account</a>
+            </div>
         </div>  
     </div>
 @endsection
